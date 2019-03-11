@@ -25,7 +25,6 @@ namespace Wobble.Graphics.Sprites
                 _image = value;
 
                 Origin = new Vector2(Image.Width / 2f, Image.Height / 2f);
-                RecalculateOrigin();
                 RecalculateRectangles();
             }
         }
@@ -103,11 +102,6 @@ namespace Wobble.Graphics.Sprites
         ///     Dictates if we want to set the alpha of the children as well.
         /// </summary>
         public bool SetChildrenAlpha { get; set; }
-
-        /// <summary>
-        ///     Constructor - Add event handler to recalculate origin.
-        /// </summary>
-        public Sprite() => RectangleRecalculated += (sender, args) => RecalculateOrigin();
 
         /// <inheritdoc />
         /// <summary>
@@ -198,10 +192,11 @@ namespace Wobble.Graphics.Sprites
             base.Destroy();
         }
 
+        /// <inheritdoc />
         /// <summary>
         ///     Recalculate Origin + Rotation of sprite
         /// </summary>
-        private void RecalculateOrigin()
+        protected override void OnRectangleRecalculated()
         {
             if (Image == null)
                 return;
