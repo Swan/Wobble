@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.Core.csproj" />
+    <ProjectReference Include="..\SpriteFontPlus\src\SpriteFontPlus\SpriteFontPlus.csproj" />
     <ProjectReference Include="..\Wobble.Resources\Wobble.Resources.csproj" />
   </ItemGroup>
   <ItemGroup>
